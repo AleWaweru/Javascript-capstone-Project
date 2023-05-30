@@ -5,5 +5,215 @@
 }
 
 body {
-  background-color: aqua;
+  background-color: rgb(217, 232, 245);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+nav {
+  background-color: rgb(7, 7, 43);
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  background: url(./images/food-logo.png);
+  width: 4rem;
+  height: 4rem;
+  margin-left: 1.5rem;
+  background-size: cover;
+}
+
+nav li {
+  color: white;
+  font-size: large;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav_container {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: 1em 2em;
+  font-size: 20px;
+  font-weight: 700;
+  gap: 20px;
+  justify-content: center;
+}
+
+.main_items_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  width: 90%;
+  margin: 3em auto;
+  gap: 10px;
+}
+
+.item_contianer {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.item_contianer img {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.name_like_conatiner {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.comments {
+  width: 100%;
+  padding: 0.1em 0;
+  font-size: 20px;
+  background-color: white;
+  font-weight: 700;
+}
+
+.fa-heart {
+  color: rgb(226, 206, 206);
+}
+
+/* Popup styling starts here */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background-color: black;
+  backdrop-filter: blur(3px);
+}
+
+.popup_container {
+  background-color: rgb(187, 187, 223);
+  width: 70%;
+  display: flex;
+  gap: 30px;
+  margin: 1em auto;
+  max-width: 550px;
+  height: 600px;
+}
+
+.popup_main {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  padding: 2em;
+}
+
+.popup_container img {
+  width: 50%;
+  align-self: center;
+  margin-bottom: 1em;
+}
+
+.popup_container i {
+  font-size: 30px;
+}
+
+.name_container {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+.specifications {
+  margin-bottom: 1em;
+}
+
+.comments_conatiner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 1em;
+}
+
+.comments_text {
+  align-self: center;
+  font-size: 18px;
+  margin-bottom: 0.5em;
+}
+
+.add_comment {
+  text-align: center;
+  margin-bottom: 0.7em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input {
+  width: 30%;
+  padding: 0.3em;
+}
+
+textarea {
+  width: 180px;
+  height: 70px;
+  padding: 0.5em;
+}
+
+.form_submit_btn {
+  font-size: 15px;
+  font-weight: 500;
+  padding: 0.2em 0;
+  width: 20%;
+  margin-bottom: 1em;
+}
+
+.hidden {
+  display: none;
+}
+
+.img_btn_popup_container {
+  display: flex;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+.img_btn_popup_container img {
+  align-self: center;
+  width: 90%;
+}
+
+.likes_heart {
+  display: flex;
+  gap: 5px;
+  font-size: 22px;
+}
+
+.colour_red {
+  color: red;
+}
+
+.footer {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  position: relative;
+  text-align: center;
+  padding: 20px 25px;
+  background: #161b22;
+  border-top: 1px solid #333;
+  color: white;
+}
+
+.footer a {
+  color: brown;
 }
