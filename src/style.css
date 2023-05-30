@@ -5,5 +5,27 @@
 }
 
 body {
-  background-color: aqua;
+  background-color: rgb(244, 248, 248);
+}
+
+
+
+/* Footer styling */
+footer {
+  border: 2px solid black;
+  margin-top: 10px;
+  height: 80px;
+  align-items: center;
+  justify-content: center;
+}
+
+footer p {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+footer p span {
+  color: blueviolet;
+  font-weight: 600;
 }
