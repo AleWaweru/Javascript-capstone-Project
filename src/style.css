@@ -6,7 +6,53 @@
 
 body {
   background-color: rgb(244, 248, 248);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+nav {
+  background-color: rgb(7, 7, 43);
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  background: url(./images/food-logo.png);
+  width: 4rem;
+  height: 4rem;
+  margin-left: 1.5rem;
+  background-size: cover;
+}
+
+nav li {
+  color: white;
+  font-size: large;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav_container {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: 1em 2em;
+  font-size: 20px;
+  font-weight: 700;
+  gap: 20px;
+  justify-content: center;
+}
+
+.main_items_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  width: 90%;
+  margin: 3em auto;
+  gap: 10px;
+}
+
 
 /* Footer styling */
 footer {
