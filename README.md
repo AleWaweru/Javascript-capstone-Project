@@ -144,6 +144,9 @@ You can deploy this project using:
 - Netlify.com
 - github pages
 
+### Demo video
+https://drive.google.com/file/d/1Zjc_51bpeujndA8MORuDeGKXKji52dxu/view?usp=sharing
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
