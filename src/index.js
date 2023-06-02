@@ -13,6 +13,7 @@ let comments;
 const backdrop = document.querySelector('.backdrop');
 const projectID = 'jz9Xjlf6GBUQcvBtrKpI';
 const dateTime = new Date();
+const navContainer = document.querySelector('.nav_container');
 
 const closePopup = () => {
   backdrop.innerHTML = '';
@@ -20,12 +21,15 @@ const closePopup = () => {
 };
 
 let commentHtml = '';
+let commentsCounter = 0;
 
 const commentsShow = (data) => {
   commentHtml = '';
+  commentsCounter = 0;
   if (!data) return;
   data.forEach((d) => {
     commentHtml += `<p>${d.creation_date} ${d.username}: ${d.comment}</p>`;
+    commentsCounter += 1;
   });
 };
 
@@ -51,9 +55,7 @@ const createPopupWindow = async (filteredObj, i) => {
 
                     <div class="comments_conatiner">
 
-                        <div class="comments_text">Comments</div>
-                        <p>03/11/2021 Alex: I'd love to buy it!</p>
-                        <p>03/11/2021 Mia: I love it!</p>
+                        <div class="comments_text">Comments (${commentsCounter})</div>
                         ${commentHtml || ''}
 
                     </div>
@@ -79,6 +81,9 @@ const createPopupWindow = async (filteredObj, i) => {
   const closeBtn = document.querySelector('.fa-times');
   closeBtn.addEventListener('click', closePopup);
 
+  let commentsCounterState = commentsCounter;
+  const commentsTextContainer = document.querySelector('.comments_text');
+
   const forms = document.querySelectorAll('form');
   forms.forEach((form) => {
     form.addEventListener('submit', async (e) => {
@@ -91,25 +96,33 @@ const createPopupWindow = async (filteredObj, i) => {
 
       let html = '';
 
-      html += `<p>2023-0${dateTime.getMonth()}-${dateTime.getDate()} ${input.value}: ${textarea.value}</p>`;
+      html += `<p>2023-0${dateTime.getMonth()}-${dateTime.getDate()} ${
+        input.value
+      }: ${textarea.value}</p>`;
 
       commentsContainer.insertAdjacentHTML('beforeend', html);
 
+      commentsCounterState += 1;
+      commentsTextContainer.innerHTML = `Comments (${commentsCounterState})`;
+
       const { id } = e.target.closest('.popup_container');
 
-      const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${projectID}/comments`, {
-        method: 'POST',
+      const response = await fetch(
+        `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${projectID}/comments`,
+        {
+          method: 'POST',
 
-        headers: {
-          'Content-Type': 'application/json',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+
+          body: JSON.stringify({
+            item_id: id,
+            username: input.value,
+            comment: textarea.value,
+          }),
         },
-
-        body: JSON.stringify({
-          item_id: id,
-          username: input.value,
-          comment: textarea.value,
-        }),
-      });
+      );
     });
   });
 };
@@ -121,6 +134,11 @@ const createCards = async () => {
     const items = await getData();
     const { categories } = items;
 
+    const itemsCounter = categories.length;
+    const itemCounterHtml = `<li class="nav_items"><a class="nav_items_links" href="#"> (${itemsCounter}) Categories</a></li><li class="nav_items"><a class="nav_items_links" href="#">Ingredients</a></li><li class="nav_items"><a class="nav_items_links" href="#">Meal Area</a></li>`;
+
+    navContainer.innerHTML = itemCounterHtml;
+
     const likeID = await getLikes(projectID);
 
     categories.forEach((category) => {
@@ -130,12 +148,16 @@ const createCards = async () => {
                     <p>${category.strCategory}</p> 
                     
                     <div class="likes_heart"> 
-                    <p>${likesShow(likeID, category) ? likesShow(likeID, category) : '0'}</p>
+                    <p>${
+  likesShow(likeID, category)
+    ? likesShow(likeID, category)
+    : '0'
+}</p>
                     <i class="fas fa-heart"></i>
                     </div>
                 </div>
                 <button class="comments popup_btn">Comments</button>
-                </div>`;
+            </div>`;
     });
 
     mainItemsContainer.insertAdjacentHTML('afterbegin', html);
@@ -147,7 +169,9 @@ const createCards = async () => {
       comment.addEventListener('click', (e) => {
         const { id } = e.target.closest('.item_contianer');
 
-        const [filteredObj] = categories.filter((category) => category.idCategory === id);
+        const [filteredObj] = categories.filter(
+          (category) => category.idCategory === id,
+        );
         createPopupWindow(filteredObj, i + 1);
       });
     });
@@ -155,12 +179,18 @@ const createCards = async () => {
     heartBtn.forEach((heart) => {
       heart.addEventListener('click', (e) => {
         const { id } = e.target.closest('.item_contianer');
-        heart.classList.add('colour_red');
+        heart.classList.toggle('colour_red');
+
         let likeCounter = e.target.previousElementSibling.textContent;
         likeCounter = +likeCounter;
-        likeCounter += 1;
-        e.target.previousElementSibling.textContent = String(likeCounter);
-        postLikes(id, projectID);
+        if (heart.classList.contains('colour_red')) {
+          likeCounter += 1;
+          e.target.previousElementSibling.textContent = String(likeCounter);
+          postLikes(id, projectID);
+        } else {
+          likeCounter -= 1;
+          e.target.previousElementSibling.textContent = String(likeCounter);
+        }
       });
     });
     return 'Passed';

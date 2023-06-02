@@ -153,13 +153,13 @@ You can deploy this project using:
 ## 👥 Authors <a name="authors"></a>
 
 
-👤 **Author1**
+👤 **Alex**
 
 - GitHub: [@githubhandle](https://github.com/AleWaweru/My-Portfolio)
 - Twitter: [@twitterhandle](https://twitter.com/ngashalex)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/alex-waweru-2b2701180/)
 
-👤 **Author2**
+👤 **Abenezer**
 
 - GitHub: [@Abenezer](https://github.com/Abenezer-addisu)
 - LinkedIn: [Abenezer](https://www.linkedin.com/in/abenezer-addisu)
@@ -216,7 +216,7 @@ If you like this project you can leave a star to it.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/AleWaweru/Javascript-capstone-Project/blob/MIT.md) licensed.
+This project is [MIT](/MIT.md) licensed.
 
 
 
