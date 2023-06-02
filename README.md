@@ -145,7 +145,7 @@ You can deploy this project using:
 - github pages
 
 ### Demo video
-https://drive.google.com/file/d/1Zjc_51bpeujndA8MORuDeGKXKji52dxu/view?usp=sharing
+[video here](https://drive.google.com/file/d/1cTweNjv2uo9et3A1fTgw8K4-6i0y9-YY/view?usp=drive_link)
 
 
 
