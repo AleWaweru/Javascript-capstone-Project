@@ -4,10 +4,12 @@ import getLikes from './modules/getlikes.js';
 import likesShow from './modules/likeShow.js';
 import createAppId from './modules/createAppId.js';
 import postLikes from './modules/postLikes.js';
+
 import showComments from './modules/showComments.js';
 
 const mainItemsContainer = document.querySelector('.main_items_container');
 let comments;
+
 const backdrop = document.querySelector('.backdrop');
 const projectID = 'jz9Xjlf6GBUQcvBtrKpI';
 const dateTime = new Date();
@@ -97,6 +99,7 @@ const createPopupWindow = async (filteredObj, i) => {
 
       const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${projectID}/comments`, {
         method: 'POST',
+
         headers: {
           'Content-Type': 'application/json',
         },
@@ -131,8 +134,8 @@ const createCards = async () => {
                     <i class="fas fa-heart"></i>
                     </div>
                 </div>
-                <button class="comments">Comments</button>
-            </div>`;
+                <button class="comments popup_btn">Comments</button>
+                </div>`;
     });
 
     mainItemsContainer.insertAdjacentHTML('afterbegin', html);

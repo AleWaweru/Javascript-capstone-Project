@@ -71,7 +71,7 @@ a {
   font-weight: 700;
 }
 
-.comments {
+.popup_btn {
   width: 100%;
   padding: 0.1em 0;
   font-size: 20px;
@@ -201,13 +201,17 @@ textarea {
   color: red;
 }
 
-/* Footer styling */
 footer {
-  border: 2px solid black;
-  margin-top: 10px;
-  height: 80px;
-  align-items: center;
-  justify-content: center;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  position: relative;
+  text-align: center;
+  padding: 20px 25px;
+  background: rgb(7, 7, 43);
+  border-top: 1px solid #333;
+  color: white;
 }
 
 footer p {
