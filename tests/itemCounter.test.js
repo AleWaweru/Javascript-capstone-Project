@@ -17,3 +17,9 @@ test('Should return correct count for items', () => {
 
   expect(itemcounter(dummyData)).toBe(1);
 });
+
+test('Should return 0 item', () => {
+  const dummyData = [];
+
+  expect(itemcounter(dummyData)).toBe(0);
+});
