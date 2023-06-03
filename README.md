@@ -48,7 +48,6 @@
 ### Key Features <a name="key-features"></a>
 
 
-
 - **Hit The API for post and get data**
 - **Use the ES6 of javascript**
 - **Set up the project using webpack**
@@ -59,12 +58,12 @@
 - **Comment counter functionality**
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 Try it with <a href="https://alewaweru.github.io/Javascript-capstone-Project/dist/">gh-pages</a> 
 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
